@@ -1,0 +1,30 @@
+Step 1: Enable USB Debugging in your phone.
+
+Step 2: Download ADB Utilities from Android SDK Tools - Platform Tools
+    -> https://developer.android.com/studio/releases/platform-tools
+
+Step 3: Open command line and connect your mobile with your PC using a wire.
+
+Step 4: Navigate to the extracted platform-tools folder.
+
+Step 5: type "adb devices"
+    -> If you have properly set up the USB Debugging and allowed permissions then it will show a device as connected
+
+Step 6: type "adb shell",  If you wish to exit type "exit" inside the shell
+
+Step 7: type "pm list packages"
+    -> It will show a list of packages installed in your device,
+    Eg : package:com.xiaomi.mipicks
+
+Step 8: Extract just the package name and execute this command
+    -> pm uninstall -k --user 0 {some_package_name}
+    Eg:
+    pm uninstall -k --user 0 com.xiaomi.mipicks
+    pm uninstall -k --user 0 com.android.browser
+    pm uninstall -k --user 0 com.miui.videoplayer
+    pm uninstall -k --user 0 com.miui.player
+
+    This command will keep the data of the app (with "-k").
+
+    It will only remove the app from your user and not from the device.("--user 0", 0 is the default/current user)
+    A factory reset will bring them all back.
